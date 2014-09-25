@@ -1,0 +1,25 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: <%= `whoami` %>
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *common
+  database: orienteering_development
+  password:
+  template: template0
+
+test:
+  <<: *common
+  database: orienteering_test
+  password:
+  template: template0
+
+test:
+  <<: *common
+  database: orienteering_production
+  password:
+  template: template0
