@@ -1,7 +1,7 @@
 # Feature: Navigation links
 #   As a visitor
 #   I want to see navigation links
-#   So I can find home, sign in, or sign up
+#   So I can find home, sign in
 feature 'Navigation links', :devise do
 
   # Scenario: View navigation links

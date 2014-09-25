@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @event.name
+p
+  strong Location:
+  = @event.location
+p
+  strong Terrain:
+  = @event.terrain
+p
+  strong Start date:
+  = @event.start_date
+p
+  strong End date:
+  = @event.end_date
+p
+  strong Starting point:
+  = @event.starting_point
+
+= link_to 'Edit', edit_event_path(@event)
+'|
+= link_to 'Back', events_path
