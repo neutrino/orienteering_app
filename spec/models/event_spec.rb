@@ -6,12 +6,13 @@ describe Event do
 
   subject { @event }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:location) }
-  it { should respond_to(:terrain) }
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:location) }
+  it { should validate_presence_of(:start_date) }
+  it { should validate_presence_of(:end_date) }
+  it { should validate_presence_of(:starting_point) }
+
   it { should respond_to(:start_date) }
-  it { should respond_to(:end_date) }
-  it { should respond_to(:starting_point) }
 
 end
 
