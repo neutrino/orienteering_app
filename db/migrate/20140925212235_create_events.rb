@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :terrain
       t.date :start_date
       t.date :end_date
-      t.text :starting_point
+      t.string :starting_point
 
       t.timestamps
     end

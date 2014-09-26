@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140925212235) do
     t.string   "terrain"
     t.date     "start_date"
     t.date     "end_date"
-    t.text     "starting_point"
+    t.string   "starting_point"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
