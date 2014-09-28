@@ -8,5 +8,5 @@ env:
   - DB=mysql
   - DB=postgresql
 script:
-  - rake db:migrate
-  - rake rspec
+  - bundle exec rake db:migrate
+  - bundle exec rake rspec
