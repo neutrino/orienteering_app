@@ -18,7 +18,7 @@ test:
   password:
   template: template0
 
-test:
+production:
   <<: *common
   database: orienteering_production
   password:
