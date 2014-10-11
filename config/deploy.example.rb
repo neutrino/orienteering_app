@@ -1,29 +1,29 @@
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'orienteering'
 
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :scm, :git
+set :repo_url, 'https://github.com/NFC-Orienteering/orienteering_app.git'
+set :branch, 'master'
 
-# set :deploy_to, '/var/www/my_app'
-# set :scm, :git
+set :deploy_to, '<deploy_path>'
+server '<server_url>', user: '<user>', roles: %w{web app db}
 
-# set :format, :pretty
-# set :log_level, :debug
-# set :pty, true
+# We don't want to use sudo (root) - for security reasons
+set :use_sudo, false
 
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :format, :pretty
+set :log_level, :debug
+set :pty, true
 
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+set :linked_files, %w{config/database.yml config/secrets.yml config/unicorn.rb }
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+set :keep_releases, 5
 
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
+    invoke 'unicorn:reload'
   end
 
   after :restart, :clear_cache do
