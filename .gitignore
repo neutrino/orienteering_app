@@ -30,6 +30,7 @@ db/*.sqlite3
 /config/config.yml
 /config/database.yml
 /config/secrets.yml
+/config/deploy.rb
 /coverage.data
 /coverage/
 /db/*.javadb/
