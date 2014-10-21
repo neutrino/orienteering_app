@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Distance:
+  = @track.distance
+p
+  strong Name:
+  = @track.name
+p
+  strong Event:
+  = @track.event
+
+= link_to 'Edit', edit_track_path(@track)
+'|
+= link_to 'Back', tracks_path
