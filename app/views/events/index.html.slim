@@ -22,8 +22,8 @@ table#events
         td = event.start_date
         td = event.end_date
         td = event.starting_point
-        td = link_to 'Edit', edit_event_path(event) if user_signed_in?
         td = link_to 'Tracks', event_tracks_path(event) if user_signed_in?
+        td = link_to 'Edit', edit_event_path(event) if user_signed_in?
         td = link_to 'Destroy', event, data: {:confirm => 'Are you sure?'}, :method => :delete if user_signed_in?
 
 br
