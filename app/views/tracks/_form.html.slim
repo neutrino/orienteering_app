@@ -1,9 +1,10 @@
-= simple_form_for([@event, @track]) do |f|
+= simple_form_for([@event, @track], html: { multipart: true } ) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :distance
     = f.input :name
+    = f.file_field :image
 
   .form-actions
     = f.button :submit

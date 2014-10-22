@@ -3,8 +3,9 @@ h1 Listing tracks of #{ @event.name }
 table
   thead
     tr
-      th Distance
       th Name
+      th Distance
+      th Image
       th
       th
       th
@@ -12,8 +13,9 @@ table
   tbody
     - @tracks.each do |track|
       tr
-        td = track.distance
         td = track.name
+        td = track.distance
+        td = image_tag track.image.url(:thumb)
         td = link_to 'Show', event_track_path(@event, track)
         td = link_to 'Edit', edit_event_track_path(@event, track)
         td = link_to 'Destroy', event_track_path(@event, track), data: {:confirm => 'Are you sure?'}, :method => :delete

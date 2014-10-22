@@ -1,9 +1,7 @@
 include Warden::Test::Helpers
 Warden.test_mode!
 
-# Feature: Tracks of an Event
-
-feature 'New track', :devise do
+feature 'Edit Track', :devise do
   after(:each) do
     Warden.test_reset!
   end
@@ -14,7 +12,6 @@ feature 'New track', :devise do
     @track = FactoryGirl.create(:track, name: 'Track 1', distance: '5 KM.')
     login_as(@user, :scope => :user)
   end
-
 
   scenario 'with valid information' do
     visit edit_event_track_path(@event, @track)

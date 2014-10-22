@@ -48,6 +48,6 @@ class TracksController < ApplicationController
     end
 
     def track_params
-      params.require(:track).permit(:distance, :name, :event)
+      params.require(:track).permit(:distance, :name, :image)
     end
 end
