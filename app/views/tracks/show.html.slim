@@ -1,15 +1,17 @@
 p#notice = notice
 
-p
-  strong Distance:
-  = @track.distance
+h1 Track of #{ @event.name }
+
 p
   strong Name:
   = @track.name
 p
-  strong Event:
-  = @track.event
+  strong Distance:
+  = @track.distance
+p
+  strong Image:
+  = image_tag @track.image
 
-= link_to 'Edit', edit_track_path(@track)
+= link_to 'Edit', edit_event_track_path(@event, @track)
 '|
-= link_to 'Back', tracks_path
+= link_to 'Back', event_tracks_path(@event)

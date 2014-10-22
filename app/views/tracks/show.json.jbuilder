@@ -1,1 +1,1 @@
-json.extract! @track, :id, :distance, :name, :event, :created_at, :updated_at
+json.extract! @track, :id, :distance, :name, :event, :image, :created_at, :updated_at
