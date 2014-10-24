@@ -17,6 +17,7 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'paperclip', '~> 4.2'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
