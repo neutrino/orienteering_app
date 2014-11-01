@@ -5,6 +5,8 @@ FactoryGirl.define do
     distance "5 KM"
     name "Track 1"
     event_id "1"
-    image { fixture_file_upload(Rails.root.join('spec/fixtures/sample_track.jpg'), 'image/jpeg') }
+    image_file_name { 'image.jpeg' }
+    image_content_type { 'image/jpeg' }
+    image_file_size { 1024 }
   end
 end
