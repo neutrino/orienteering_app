@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :track do
     distance "5 KM"
     name "Track 1"
+    info_tag "111"
     event_id "1"
     image_file_name { 'image.jpeg' }
     image_content_type { 'image/jpeg' }

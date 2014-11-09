@@ -18,6 +18,7 @@ feature 'New track', :devise do
     visit new_event_track_path(@event)
     fill_in 'Name', with: 'Track 1'
     fill_in 'Distance', with: '5 KM'
+    fill_in 'Info tag', with: '111'
     click_button 'Create Track'
 
     expect(page).to have_content 'Track was successfully created.'

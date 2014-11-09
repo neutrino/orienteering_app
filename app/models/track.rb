@@ -10,5 +10,5 @@ class Track < ActiveRecord::Base
   validates_attachment :image, size: { in: 0..10.megabytes },
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"]}
 
-  validates :name, :distance, presence: true
+  validates :name, :distance, :info_tag, presence: true
 end
