@@ -5,7 +5,6 @@ table#events
     tr
       th Name
       th Location
-      th Terrain
       th Start date
       th End date
       th Starting point
@@ -18,7 +17,6 @@ table#events
       tr
         td = link_to event.name, event_path(event)
         td = event.location
-        td = event.terrain
         td = event.start_date
         td = event.end_date
         td = event.starting_point

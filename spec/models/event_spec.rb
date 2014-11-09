@@ -15,4 +15,3 @@ describe Event do
   it { should respond_to(:start_date) }
 
 end
-
