@@ -6,5 +6,18 @@
     = f.input :name
     = f.file_field :image
 
+  h4 Add Tag ID
+  #nested-control-points
+    = f.simple_fields_for :control_points do |control_point_form|
+      .nested_control_points_form
+        = control_point_form.input :tag_id, label: "NFC Tag ID"
+
+        - if control_point_form.object.new_record?
+          = link_to 'Remove', '', remote: true, class: 'remove_control_point'
+        - else
+          = link_to 'Remove', control_point_path(control_point_form.object), method: :delete, remote: true, class: 'remove_control_point'
+          = control_point_form.input :id, as: :hidden
+    = link_to 'Add Another NFC Tag', '#', class: 'add_control_point'
+
   .form-actions
     = f.button :submit

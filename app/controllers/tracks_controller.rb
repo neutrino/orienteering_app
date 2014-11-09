@@ -13,9 +13,11 @@ class TracksController < ApplicationController
   def new
     @event = Event.find(params[:event_id])
     @track = @event.tracks.build
+    3.times { @track.control_points.build }
   end
 
   def edit
+    @track.control_points.build
   end
 
   def create
@@ -38,7 +40,7 @@ class TracksController < ApplicationController
 
   def destroy
     @track.destroy
-    redirect_to tracks_url, notice: 'Track was successfully destroyed.'
+    redirect_to event_tracks_url(@event), notice: 'Track was successfully destroyed.'
   end
 
   private
@@ -48,6 +50,6 @@ class TracksController < ApplicationController
     end
 
     def track_params
-      params.require(:track).permit(:distance, :name, :image)
+      params.require(:track).permit(:distance, :name, :image, control_points_attributes: [:id, :tag_id])
     end
 end

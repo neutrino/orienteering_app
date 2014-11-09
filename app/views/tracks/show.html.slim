@@ -11,6 +11,11 @@ p
 p
   strong Image:
   = image_tag @track.image
+p
+  strong Control Points ID:
+  - @track.control_points.each do |cp|
+    = cp.tag_id
+    br
 
 = link_to 'Edit', edit_event_track_path(@event, @track)
 '|
