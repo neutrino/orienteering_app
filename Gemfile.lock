@@ -130,6 +130,7 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.1)
+    posix-spawn (0.3.9)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -274,6 +275,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip (~> 4.2)
   pg
+  posix-spawn
   pry
   quiet_assets
   rails (= 4.1.6)
