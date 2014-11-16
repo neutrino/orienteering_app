@@ -16,7 +16,7 @@ describe Api::V1::EventsController do
       expect(response).to be_success
     end
 
-    it "should return report in json" do
+    it "should return events in json" do
       get :index, format: :json
       body = JSON.parse(response.body)
       expect(body[0]["name"]).not_to be_empty
@@ -33,7 +33,7 @@ describe Api::V1::EventsController do
       get :show, format: :json, id: @event.id
       expect(response).to be_success
     end
-    it "should be successful" do
+    it "should include available events" do
       get :show, format: :json, id: @event.id
       body = JSON.parse(response.body)
       expect(["name"]).not_to be_empty
