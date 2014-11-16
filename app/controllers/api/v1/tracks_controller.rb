@@ -8,6 +8,6 @@ class Api::V1::TracksController < Api::BaseController
   end
 
   def search
-    @track = Track.where(info_tag: params[:id])
+    @track = Track.where(info_tag: params[:info_tag]).first
   end
 end

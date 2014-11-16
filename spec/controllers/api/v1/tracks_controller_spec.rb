@@ -47,4 +47,29 @@ describe Api::V1::TracksController do
       expect(body["event"]).to_not be_blank
     end
   end
+
+  describe "search a track" do
+    before(:each) do
+      @event = FactoryGirl.create(:event)
+      @track = FactoryGirl.create(:track, event: @event, info_tag: '45')
+    end
+
+    it "should be successful" do
+      get :search, format: :json, info_tag: @track.info_tag
+      expect(response).to be_success
+    end
+
+    it 'responds with JSON' do
+      get :search, format: :json, info_tag: @track.info_tag
+      expect { JSON.parse(response.body)}.to_not raise_error
+    end
+
+    it "should have track information and event" do
+      get :search, format: :json, info_tag: @track.info_tag
+      body = JSON.parse(response.body)
+      expect(body["name"]).to eq @track.name
+      expect(body["info_tag"]).to eq @track.info_tag
+      expect(body["event"]).to_not be_blank
+    end
+  end
 end
