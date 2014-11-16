@@ -9,5 +9,6 @@ class Api::V1::TracksController < Api::BaseController
 
   def search
     @track = Track.where(info_tag: params[:info_tag]).first
+    render :show
   end
 end
