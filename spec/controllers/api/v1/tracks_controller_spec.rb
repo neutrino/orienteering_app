@@ -72,4 +72,18 @@ describe Api::V1::TracksController do
       expect(body["event"]).to_not be_blank
     end
   end
+
+  describe "Adding a result to a track" do
+    before(:each) do
+      @event = FactoryGirl.create(:event)
+      @track = FactoryGirl.create(:track, event: @event)
+    end
+
+    it "creates new record" do
+      expect{
+        post :result, format: :json, id: @track.id, result: { nickname: "Matti", details:{ "26" => 00, "45" => 1200 }}
+      }.to change(Result, :count).by(1)
+    end
+  end
+
 end

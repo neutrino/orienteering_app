@@ -11,4 +11,16 @@ class Api::V1::TracksController < Api::BaseController
     @track = Track.where(info_tag: params[:info_tag]).first
     render :show
   end
+
+  def result
+    @track = Track.find(params[:id])
+    @track.results.create(results_params)
+    head 201
+  end
+
+  private
+  def results_params
+    params.require(:result).permit(:nickname, :details)
+  end
+
 end
