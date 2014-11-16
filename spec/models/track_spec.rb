@@ -12,5 +12,6 @@ RSpec.describe Track, :type => :model do
   it { should accept_nested_attributes_for :control_points }
 
   it { should have_many(:control_points) }
+  it { should have_many(:results) }
 
 end
