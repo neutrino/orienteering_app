@@ -86,4 +86,12 @@ describe Api::V1::TracksController do
     end
   end
 
+  describe "invalid id" do
+    it "should respond with proper error message when record is not found" do
+      get :show, format: :json, id: 1234
+      body = JSON.parse(response.body)
+      expect(response.status).to be 404
+      expect(["error"]).not_to be_empty
+    end
+  end
 end
