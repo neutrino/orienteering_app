@@ -1,0 +1,17 @@
+h1 Results
+table
+  thead
+    tr
+      th Nick Name
+      th Details
+      th
+
+  tbody
+    - @results.each_with_index do |result, index|
+      tr
+        td = index+1
+        td = result.details
+        td = link_to 'Delete', result_path(result), data: {confirm: 'Are you sure?'}, method: :delete
+
+br
+= link_to 'Back to Tracks', event_tracks_path(@track.event)

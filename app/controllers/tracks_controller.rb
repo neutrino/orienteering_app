@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
-  before_action :set_track, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+  before_action :set_track, only: [:show, :edit, :update, :destroy]
 
   def index
     @event = Event.find(params[:event_id])

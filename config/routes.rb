@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :tracks do
       resources :control_points, shallow: true
+      resources :results, only: [:index, :destroy], shallow: true
     end
   end
 
