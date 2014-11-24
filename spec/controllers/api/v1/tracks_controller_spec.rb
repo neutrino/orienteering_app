@@ -70,6 +70,7 @@ describe Api::V1::TracksController do
       expect(body["name"]).to eq @track.name
       expect(body["info_tag"]).to eq @track.info_tag
       expect(body["event"]).to_not be_blank
+      expect(body["image_url"]).to_not be_blank
     end
   end
 
