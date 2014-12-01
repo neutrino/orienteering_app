@@ -15,12 +15,13 @@ class Api::V1::TracksController < Api::BaseController
   def result
     @track = Track.find(params[:id])
     @track.results.create(results_params)
+    binding.pry
     head 201
   end
 
   private
   def results_params
-    params.require(:result).permit(:nickname, :details)
+    params.permit(:nickname, :total_time, :control_points, :complete)
   end
 
 end

@@ -78,11 +78,21 @@ describe Api::V1::TracksController do
     before(:each) do
       @event = FactoryGirl.create(:event)
       @track = FactoryGirl.create(:track, event: @event)
+      #no validations for the tags at the moment
     end
 
     it "creates new record" do
       expect{
-        post :result, format: :json, id: @track.id, result: { nickname: "Matti", details:{ "26" => 00, "45" => 1200 }}
+        post :result, format: :json, id: @track.id,
+        result: {
+          nickname: "Matti",
+          total_time: 12345,
+          complete: false,
+          control_points: [
+            { tag_id: 14, time: 8000 },
+            { tag_id: 15, time: 4345 }
+          ]
+        }
       }.to change(Result, :count).by(1)
     end
   end
