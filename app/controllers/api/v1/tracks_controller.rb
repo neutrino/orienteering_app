@@ -13,15 +13,19 @@ class Api::V1::TracksController < Api::BaseController
   end
 
   def result
-    @track = Track.find(params[:id])
-    @track.results.create(results_params)
-    binding.pry
-    head 201
+    track = Track.find(params[:id])
+    @result = track.results.new(results_params)
+    @result.control_points = params[:control_points]
+    if @result.save
+      head 201
+    else
+      render json: { error: @result.errors }, status: 422
+    end
   end
 
   private
   def results_params
-    params.permit(:nickname, :total_time, :control_points, :complete)
+    params.permit(:nickname, :total_time, :complete)
   end
 
 end
