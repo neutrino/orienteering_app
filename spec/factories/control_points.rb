@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :control_point do
     tag_id "MyString"
+    position 1
     track_id 1
   end
 end

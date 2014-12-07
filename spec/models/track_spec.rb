@@ -18,7 +18,7 @@ RSpec.describe Track, :type => :model do
     before(:each) do
       @track = FactoryGirl.create(:track)
       FactoryGirl.create(:control_point, tag_id: 15, track: @track)
-      FactoryGirl.create(:control_point, tag_id: 16, track: @track)
+      FactoryGirl.create(:control_point, tag_id: 16, track: @track, position: 2)
     end
     it "destroys relevant control_points" do
       expect(@track.control_points.count).to be 2

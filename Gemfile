@@ -18,6 +18,7 @@ gem 'slim-rails'
 gem 'paperclip', '~> 4.2'
 gem 'newrelic_rpm'
 gem 'posix-spawn'
+gem 'acts_as_list'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
