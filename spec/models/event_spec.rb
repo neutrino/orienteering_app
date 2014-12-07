@@ -34,4 +34,16 @@ describe Event do
     end
   end
 
+  context "remove associated records" do
+    it "destroys relevant tracks" do
+      event = FactoryGirl.create(:event)
+      track = FactoryGirl.create(:track, event: event)
+      expect(event.tracks.count).to be 1
+
+      event.destroy
+      expect(Event.all).to_not include(event)
+      expect(Track.all).to_not include(track)
+    end
+  end
+
 end

@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
   belongs_to :event
-  has_many :control_points
-  has_many :results
+  has_many :control_points, dependent: :destroy
+  has_many :results, dependent: :destroy
 
   accepts_nested_attributes_for :control_points, allow_destroy: true,
     reject_if: proc { |attributes| attributes['tag_id'].blank? }
