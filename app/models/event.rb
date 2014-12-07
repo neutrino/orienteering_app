@@ -5,4 +5,8 @@ class Event < ActiveRecord::Base
 
   scope :active, -> { where("? BETWEEN start_date AND end_date", Date.today) }
 
+  def active?
+    self.start_date < Time.now and self.end_date > Time.now
+  end
+
 end
