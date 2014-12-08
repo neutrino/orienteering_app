@@ -18,6 +18,7 @@ div
     - @track.control_points.each do |cp|
      li.track-control-points
       = cp.tag_id
+      = "(#{cp.position})"
 
 = link_to 'Edit', edit_event_track_path(@event, @track)
 '|

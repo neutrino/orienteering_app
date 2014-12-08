@@ -28,3 +28,8 @@ jQuery ($) ->
 
       $('.add_control_point').before(newNestedForm)
 
+  $('ul.control-points').sortable
+    axis: 'y'
+    update: ->
+      console.log "hello"
+
