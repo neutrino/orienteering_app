@@ -2,20 +2,20 @@ common: &common
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: <%= `whoami` %>
+  username: postgres
   pool: 5
   timeout: 5000
 
 development:
   <<: *common
   database: orienteering_development
-  password:
+  password: y0l0test
   template: template0
 
 test:
   <<: *common
   database: orienteering_test
-  password:
+  password: y0l0test
   template: template0
 
 production:
