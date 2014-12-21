@@ -91,4 +91,5 @@ Vagrant.configure(2) do |config|
 
   end
 
+  config.vm.provision "shell", path: "start_ruby.sh", privileged: false
 end
