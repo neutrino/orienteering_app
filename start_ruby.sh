@@ -8,4 +8,4 @@ echo "Creating databases, migrations and seeds. Admin user is added based on sec
 bundle exec rake db:drop db:create db:migrate db:seed
 echo "done."
 echo "Starting rails server..."
-rails s
+rails server
