@@ -82,3 +82,7 @@ pickle-email-*.html
 .powenv
 
 .vagrant/
+
+# Chef
+/cookbooks
+/site-cookbooks
