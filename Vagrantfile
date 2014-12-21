@@ -56,10 +56,39 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline <<-SHELL
-  #   sudo apt-get install apache2
-  # SHELL
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+
+    chef.add_recipe "apt"
+    chef.add_recipe "openssl"
+    chef.add_recipe "postgresql"
+    chef.add_recipe "ruby_build"
+    chef.add_recipe "rbenv::user"
+    chef.add_recipe "rbenv::vagrant"
+    chef.add_recipe "postgresql::server"
+    chef.add_recipe "postgresql::client"
+
+    # Configs
+    chef.json = {
+      rbenv: {
+        user_installs: [{
+          user: 'vagrant',
+          rubies: ["2.1.3"],
+          global: "2.1.3",
+          gems: {
+            "2.1.3" => [
+              {name: "bundler"}
+            ]
+          }
+        }]
+      },
+      postgresql: {
+        password: {
+          postgres: "md58e10f8cab915148a7e9264013ec65d74" # y0l0test
+        }
+      }
+    }
+
+  end
+
 end
