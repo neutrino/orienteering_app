@@ -13,5 +13,5 @@ echo "done."
 echo "Creating databases, migrations and seeds. Admin user is added based on secrets.yml.."
 bundle exec rake db:create db:migrate db:seed
 echo "done."
-echo "Starting rails server..."
-rails server
+echo "Starting rails server (detached)..."
+rails server -d
