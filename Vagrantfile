@@ -13,6 +13,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 80, host: 8001
+
 
   config.vm.synced_folder '.', '/vagrant', nfs: true
 
@@ -32,6 +34,7 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "rbenv::vagrant"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::client"
+    chef.add_recipe "nginx"
 
     # Configs
     chef.json = {
