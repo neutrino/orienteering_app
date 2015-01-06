@@ -80,6 +80,10 @@ pickle-email-*.html
 # Environment files that may contain sensitive data
 .env
 .powenv
+.env.*
+
+# not examples
+!.env.*.example
 
 .vagrant/
 
