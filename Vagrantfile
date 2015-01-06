@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8081
 
 
-  config.vm.synced_folder '.', '/vagrant', nfs: true
+  config.vm.synced_folder '.', '/vagrant'
 
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "1024"
