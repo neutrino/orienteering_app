@@ -18,3 +18,18 @@ Travis CI
 -------------
 
 - https://travis-ci.org/neutrino/orienteering_app
+
+
+Server deployment
+================
+
+Server needs:
+
+* Ruby 2.1.3
+* PostgreSQL >= 8.4
+* Nginx (production use)
+
+Other packages that might be needed (if not installed already):
+
+* Openssl
+* ImageMagick
