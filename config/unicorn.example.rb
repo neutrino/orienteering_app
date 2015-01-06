@@ -6,7 +6,7 @@ stdout_path "#{root}/log/unicorn.log"
 
 # Port configuration
 listen "/tmp/unicorn.orienteering.sock"
-worker_processes 3
+worker_processes 2
 timeout 30
 
 # If using ActiveRecord, disconnect (from the database) before forking.
