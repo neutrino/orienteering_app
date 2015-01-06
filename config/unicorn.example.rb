@@ -9,6 +9,8 @@ listen "/tmp/unicorn.orienteering.sock"
 worker_processes 2
 timeout 30
 
+check_client_connection false
+
 # If using ActiveRecord, disconnect (from the database) before forking.
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) &&
