@@ -22,6 +22,11 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'results/', to: 'results#events'
+  get 'results/:event_id', to: 'results#event'
+  get 'results/:event_id/:track_id/overall', to: 'results#overall', :as => :overall
+  get 'results/:event_id/:track_id/splits', to: 'results#splits', :as => :splits
+
   root to: 'visitors#index'
 
   devise_for :users
