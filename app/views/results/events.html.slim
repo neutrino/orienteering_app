@@ -1,0 +1,24 @@
+h1 Results of events
+
+table.events
+  thead
+    tr
+      th Name
+      th Location
+      th Start date
+      th End date
+      th Address
+      th Results
+
+  tbody
+    - @events.each do |event|
+      tr
+        td = event.name
+        td = event.location
+        td = event.start_date.strftime("%e.%-m.%y %R")
+        td = event.end_date.strftime("%e.%-m.%y %R")
+        td = event.starting_point
+        td = link_to 'Results', result_path(event)
+
+
+
