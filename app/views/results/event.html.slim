@@ -1,0 +1,19 @@
+h1 Tracks of #{@event.name}
+
+table.tracks
+  thead
+    tr
+      th Name
+      th Distance
+      th Results
+      th Split times
+
+  tbody
+    - @tracks.each do |t|
+      tr
+        td = t.name
+        td = t.distance
+        td = link_to 'Overall results', overall_path(@event, t)
+        td = link_to 'Split times', splits_path(@event, t)
+
+= link_to 'Other events\' results', results_path
