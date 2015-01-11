@@ -13,12 +13,12 @@ p
   = image_tag @track.image
 
 div
-  h3 Available Control Points:
-  ul.control-points
+  h4 Available Control Points:
+  ul.control-points data-update-url="#{ sort_event_track_path(@event, @track)}"
     - @track.control_points.each do |cp|
-     li.track-control-points
-      = cp.tag_id
-      = "(#{cp.position})"
+      = content_tag_for(:li, cp)
+        span = cp.tag_id
+
 
 = link_to 'Edit', edit_event_track_path(@event, @track)
 '|

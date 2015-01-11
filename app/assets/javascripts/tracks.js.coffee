@@ -31,5 +31,5 @@ jQuery ($) ->
   $('ul.control-points').sortable
     axis: 'y'
     update: ->
-      console.log "hello"
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
 

@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_track, only: [:show, :edit, :update, :destroy]
+  before_action :set_track, only: [:show, :edit, :update, :destroy, :sort]
 
   def index
     @event = Event.find(params[:event_id])
@@ -43,6 +43,16 @@ class TracksController < ApplicationController
     @track.destroy
     redirect_to event_tracks_url(@event), notice: 'Track was successfully destroyed.'
   end
+
+
+  def sort
+    params[:control_point].each_with_index do |id, index|
+      control_point = @track.control_points.find(id)
+      control_point.update_attribute(:position, index) if control_point
+    end
+    render nothing: true
+  end
+
 
   private
     def set_track

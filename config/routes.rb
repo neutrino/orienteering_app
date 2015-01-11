@@ -13,10 +13,9 @@ Rails.application.routes.draw do
   end
   resources :events do
     resources :tracks do
-      resources :control_points, shallow: true, only: [:create, :destroy] do
-        collection do
-          post 'sort'
-        end
+      resources :control_points, shallow: true, only: [:create, :destroy]
+      member do
+        post 'sort'
       end
       resources :results, only: [:index, :destroy], shallow: true
     end
