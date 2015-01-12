@@ -6,6 +6,7 @@ SITE
       rsyslog (>= 0.0.0)
     build-essential (2.1.3)
     chef-sugar (2.4.1)
+    imagemagick (0.2.3)
     nginx (2.7.4)
       apt (~> 2.2)
       bluepill (~> 2.3)
@@ -50,6 +51,7 @@ GIT
 DEPENDENCIES
   apt (>= 0)
   build-essential (>= 0)
+  imagemagick (>= 0)
   nginx (>= 0)
   nodejs (>= 0)
   openssl (>= 0)
