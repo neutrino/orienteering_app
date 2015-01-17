@@ -8,7 +8,7 @@ worker_processes 1;
 
 
 # Feel free to change all paths to suite your needs here, of course
-pid /path/to/nginx.pid;
+pid /var/run/nginx.pid;
 error_log /var/log/nginx/error.log;
 access_log /var/log/nginx/access.log;
 
