@@ -1,5 +1,11 @@
 h1 Split time results for track #{@track.name} in event #{@event.name}
 
+= @control_points.inspect
+
+br
+
+= @results.inspect
+
 table
   thead
     tr
@@ -17,7 +23,7 @@ table
         td = index+1
         td = result.nickname
         - @control_points.each_with_index do |cp, index|
-          - time = result.control_points.select {|c| c[:tag_id] == cp.tag_id}
+          - time = result.control_points.select {|c| c[:tag_id] == cp.tag_id.to_i}
           - time = time.empty? ? 0 : time.first[:time]
           td = time && time != 0 ? Time.at(time.to_i.round(-3) / 1000).strftime("%T") : "-"
         td = result.total_time ? Time.at(result.total_time.to_i.round(-3) / 1000).strftime("%T") : "-"
