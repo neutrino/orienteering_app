@@ -19,6 +19,17 @@ Travis CI
 
 - https://travis-ci.org/neutrino/orienteering_app
 
+Development
+--------------
+
+There are two choices for development environment:
+
+1) For fast start of development you can use Vagrant [(check the wikipage)](https://github.com/NFC-Orienteering/orienteering_app/wiki/Vagrant-with-Chef).
+
+To run the server cd to the project root (`cd /vagrant` with Vagrant) and run `rails s`. This will start the development server to [localhost port 3000](http://localhost:3000). Running `rails s -d` will run the server in background.
+
+2) If you want to develop in your computer without Vagrant's virtual machine install dependencies (Ruby 2.1.3, ImageMagik, PostgreSQL). The run `bundle install` in the application folder. This will install all the Gems listed in **Gemfile**. Re-open your console window to refresh PATH and then run `rails s` to start development server in [localhost port 3000](http://localhost:3000). Running `rails s -d` will run the server in background.
+
 
 Dependencies
 =================
