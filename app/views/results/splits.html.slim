@@ -14,7 +14,6 @@ table
       - @control_points.each_with_index do |cp, index|
         th = (index + 1).to_s + "-" + cp.tag_id
       th Total time
-      th Complete
       th Uploaded
 
   tbody
@@ -27,7 +26,6 @@ table
           - time = time.empty? ? 0 : time.first[:time]
           td = time && time != 0 ? Time.at(time.to_i.round(-3) / 1000).strftime("%T") : "-"
         td = result.total_time ? Time.at(result.total_time.to_i.round(-3) / 1000).strftime("%T") : "-"
-        td = result.complete ? "Complete": "Incomplete"
         td = result.created_at ? Time.parse(result.created_at.to_s).strftime("%e.%-m.%y %R") : "-"
 br
 = link_to 'Back to other tracks', result_path(@track.event)
