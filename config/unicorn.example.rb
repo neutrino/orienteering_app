@@ -5,7 +5,7 @@ stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
 # Port configuration
-listen "/tmp/unicorn.orienteering.sock"
+listen "#{root}/tmp/unicorn.orienteering.sock"
 # listen 8080, :tcp_nopush => true
 worker_processes 2
 timeout 90
