@@ -54,7 +54,53 @@ Server deployment
 
 Pull the repository, change to project directory and run `bundle install`. This will install all gems for the system.
 
-Once gems are installed, run `rails server` to start development server. If everything is OK WEBrick server should start successfully. Ctrl - C to shutdown the server.
+# Set Ruby on Rails environment
+
+## Database.yml
+
+Database.yml has database configs, copy example:
+
+    cp config/database.yml.example config/database.yml
+
+Check it and config for example the db username for the application. Password for production user is set below (.env.production)
+
+## Secrets.yml
+
+Control secrets for the application. Is used to generate user for the application.
+Copy:
+
+    cp config/secrets.yml.example config/secrets.yml
+
+Set secrets for development and test environments as you wish. Production secrets are controlled with environemnt variables, see below.
+
+## Environment variables
+
+**Dotenv** gem is used to manage some environment variables. Copy example file:
+
+    cp .env.production.example .env.production
+
+Then edit `.env.production` and set variables for your environment:
+
+- ADMIN_NAME
+- ADMIN_EMAIL (username for admin user)
+- ADMIN_PASSWORD (admin password)
+- DOMAIN_NAME
+- DB_PASSWORD (password for default db user "postgres", for more precise control use `config/database.yml`)
+- SECRET_KEY_BASE (check below)
+
+### Create secret key for Rails app
+
+Append secret key to environment variable file:
+
+    rake secret >> .env.production
+
+Edit `.env.production` and set appended key as value for variable **SECRET_KEY_BASE**
+
+
+
+# Test Rails application
+
+Once gems are installed and environment configs done, run `rails server` to start development server. If everything is OK WEBrick server should start successfully. Ctrl - C to shutdown the server.
 
 # Unicorn configuration
 
@@ -106,49 +152,9 @@ Check that pid, error_log and access_log paths are OK & writable
 
 - Set server socket path to match unicorn socket path (from `config/unicorn.rb`): `server unix:/path/to/app/tmp/unicorn.appname.sock fail_timeout=0;`
 - Set `root` path to your rails application /public folder: `root /path/to/app/public/;`
+- As you will be precompiling the assets below, uncomment line `gzip_static on;`. Nginx will provide clients with compiled assets from gzipped files, thus reducing needed bandwith.
 
-
-# Set Ruby on Rails environment
-
-## Database.yml
-
-Database.yml has database configs, copy example:
-
-    cp config/database.yml.example config/database.yml
-
-Check it and config for example the db username for the application. Password for production user is set below (.env.production)
-
-## Secrets.yml
-
-Control secrets for the application. Is used to generate user for the application.
-Copy:
-
-    cp config/secrets.yml.example config/secrets.yml
-
-Set secrets for development and test environments as you wish. Production secrets are controlled with environemnt variables, see below.
-
-## Environment variables
-
-**Dotenv** gem is used to manage some environment variables. Copy example file:
-
-    cp .env.production.example .env.production
-
-Then edit `.env.production` and set variables for your environment:
-
-- ADMIN_NAME
-- ADMIN_EMAIL (username for admin user)
-- ADMIN_PASSWORD (admin password)
-- DOMAIN_NAME
-- DB_PASSWORD (password for default db user "postgres", for more precise control use `config/database.yml`)
-- SECRET_KEY_BASE (check below)
-
-### Create secret key for Rails app
-
-Append secret key to environment variable file:
-
-    rake secret >> .env.production
-
-Edit `.env.production` and set appended key as value for variable **SECRET_KEY_BASE**
+Test that nginx configs are valid with `sudo nginx -t`.
 
 
 ## Misc
@@ -177,6 +183,9 @@ If this is fresh install, you might want to run also `RAILS_ENV=production rake 
 
 
 **Orienteering application is now running with Nginx as HTTP proxy, Unicorn as application server**
+
+
+If there are changes to code, sun `sudo service unicorn upgrade` to update changes to Unicorn.
 
 
 # Problems?
