@@ -38,7 +38,7 @@ Other packages that might be needed (if not installed already):
 Server deployment
 ================
 
-** TESTED IN UBUNTU 14.04 (Trusty) **
+**TESTED IN UBUNTU 14.04 (Trusty)**
 
 
 Pull the repository, change to project directory and run `bundle install`. This will install all gems for the system.
@@ -51,7 +51,7 @@ Unicorn is the (production) application server for Ruby on Rails application
 
 1. Copy config template
 
-    cp config/unicorn.example.rb config/unicorn.rb
+    `cp config/unicorn.example.rb config/unicorn.rb`
 
 2. Check that `config/unicorn.rb` config looks ok, application directory is used as root. By default we listen for socket, but can also be configured to listen for TCP ports etc...
 
@@ -61,7 +61,7 @@ Create service for unicorn for easy start/stop/upgrade.
 
 1. Copy script to `/etc/init.d/unicorn`
 
-    sudo cp config/unicorn_init.sh /etc/init.d/unicorn
+    `sudo cp config/unicorn_init.sh /etc/init.d/unicorn`
 
 2. Configure `/etc/init.d/unicorn`:
 - Set **APP_ROOT** as the path for the application root
@@ -94,7 +94,7 @@ Check that pid, error_log and access_log paths are OK & writable
 **/etc/nginx/sites-available/default**
 
 - Set server socket path to match unicorn socket path (from `config/unicorn.rb`): `server unix:/path/to/app/tmp/unicorn.appname.sock fail_timeout=0;`
-- Set `root` path to your rails application /public folder: `root /path/to/app/public/`
+- Set `root` path to your rails application /public folder: `root /path/to/app/public/;`
 
 
 # Set Ruby on Rails environment
@@ -143,7 +143,7 @@ Edit `.env.production` and set appended key as value for variable **SECRET_KEY_B
 ## Misc
 
 - `mkdir log` to create folder for logs.
-- Make sure folders under tmp/ are writable for the user (chown -R userX:userX tmp/)
+- Make sure folders under tmp/ are writable for the user (`chown -R userX:userX tmp/`)
 
 
 # Start services
@@ -165,7 +165,7 @@ Run command `RAILS_ENV=production rake db:create db:migrate assets:precompile`
 If this is fresh install, you might want to run also `RAILS_ENV=production rake db:seed`, which will insert admin user into database (admin user details from `.env.production` (ADMIN_NAME, ADMIN_PASSWORD))
 
 
-** Orienteering application is now running with Nginx as HTTP proxy, Unicorn as application server
+**Orienteering application is now running with Nginx as HTTP proxy, Unicorn as application server**
 
 
 # Problems?
