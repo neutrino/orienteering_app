@@ -16,7 +16,7 @@ table
         td = index+1
         td = result.nickname
         - @control_points.each_with_index do |cp, index|
-          - time = result.control_points.select {|c| c[:tag_id] == cp.tag_id.to_i}
+          - time = result.control_points.select {|c| c[:tag_id].to_s == cp.tag_id.to_s}
           - time = time.empty? ? 0 : time.first[:time]
           td = time && time != 0 ? (Time.new(0) + (time.to_i.round(-3) / 1000).seconds).strftime("%T") : "-"
         td = result.total_time ? (Time.new(0) + (result.total_time.to_i.round(-3) / 1000).seconds).strftime("%T") : "-"
