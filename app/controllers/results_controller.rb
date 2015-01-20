@@ -32,6 +32,7 @@ class ResultsController < ApplicationController
     @event = Event.find(params[:event_id])
     @track = Track.find(params[:track_id])
     @control_points = @track.control_points.all
+    first, *@control_points = @control_points # drops first tag (the starting tag)
     @results = @track.results.all.sort_by { |r| r.total_time.to_i }
   end
 
