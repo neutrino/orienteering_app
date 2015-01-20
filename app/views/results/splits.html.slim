@@ -18,8 +18,8 @@ table
         - @control_points.each_with_index do |cp, index|
           - time = result.control_points.select {|c| c[:tag_id] == cp.tag_id.to_i}
           - time = time.empty? ? 0 : time.first[:time]
-          td = time && time != 0 ? Time.at(time.to_i.round(-3) / 1000).strftime("%T") : "-"
-        td = result.total_time ? Time.at(result.total_time.to_i.round(-3) / 1000).strftime("%T") : "-"
+          td = time && time != 0 ? (Time.new(0) + (time.to_i.round(-3) / 1000).seconds).strftime("%T") : "-"
+        td = result.total_time ? (Time.new(0) + (result.total_time.to_i.round(-3) / 1000).seconds).strftime("%T") : "-"
         td = result.created_at ? Time.parse(result.created_at.to_s).strftime("%e.%-m.%y %R") : "-"
 br
 = link_to 'Back to other tracks', result_path(@track.event)
