@@ -14,7 +14,7 @@ table
       tr
         td = index+1
         td = result.nickname
-        td = result.total_time ? Time.at(result.total_time.to_i / 1000).strftime("%T") : "-"
+        td = result.total_time ? (Time.new(0) + (result.total_time.to_i / 1000).seconds).strftime("%T") : "-"
         td = result.complete ? "Complete": "Incomplete"
         td = result.created_at ? result.created_at.strftime("%e.%-m.%y %R") : "-"
 
