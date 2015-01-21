@@ -185,7 +185,7 @@ If this is fresh install, you might want to run also `RAILS_ENV=production rake 
 **Orienteering application is now running with Nginx as HTTP proxy, Unicorn as application server**
 
 
-If there are changes to code, sun `sudo service unicorn upgrade` to update changes to Unicorn.
+If there are changes to code, run `sudo service unicorn stop` and then start Unicorn again `sudo service unicorn start`.
 
 
 # Problems?
