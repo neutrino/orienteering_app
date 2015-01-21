@@ -1,7 +1,7 @@
 Orienteering
 ================
 
-[(Ruby on Rails)](http://guides.rubyonrails.org/) project for Orienteering
+[Ruby on Rails](http://guides.rubyonrails.org/) project for Orienteering
 
 
 
@@ -24,7 +24,7 @@ Development
 
 There are two choices for development environment:
 
-1) For fast start of development you can use Vagrant [(check the wikipage for step-by-step guides on how to get server running locally)](https://github.com/NFC-Orienteering/orienteering_app/wiki/Vagrant-with-Chef). **Windows user!** If you use Windows installation of Git, check [(this issue before proceeding)](https://github.com/NFC-Orienteering/orienteering_app/wiki/Vagrant-with-Chef#check-line-endings-of-ruby-version-file). Having Windows line endings when running Unix scripts potentially has strange outcomes...
+1) For fast start of development you can use Vagrant [(check the wikipage for step-by-step guides on how to get server running locally)](https://github.com/NFC-Orienteering/orienteering_app/wiki/Vagrant-with-Chef). **Windows user!** If you use Windows installation of Git, check [this issue before proceeding](https://github.com/NFC-Orienteering/orienteering_app/wiki/Vagrant-with-Chef#check-line-endings-of-ruby-version-file). Having Windows line endings when running Unix scripts potentially has strange outcomes...
 
 2) Install everything from scratch. If you want to develop in your computer without Vagrant's virtual machine install dependencies (Ruby 2.1.3, ImageMagik, PostgreSQL). The run `bundle install` in the application folder. This will install all the Gems listed in **Gemfile**. Re-open your console window to refresh PATH. Run `rake db:create db:migrate` (and `rake db:seed` to create default admin user) to initialize database. Then run `rails s` to start development server in [localhost port 3000](http://localhost:3000). Running `rails s -d` will run the server in background.
 
@@ -110,7 +110,7 @@ Configurations for development environment is now done (installed gem, setup dat
 Run `rails server` in project root to start development server. If everything is OK WEBrick server should start successfully. Nice!
 If it doesn't start it might be because you don't have database configured, run `rake db:create db:migrate` to create database, then `rails server` to start server again.
 
-If you are running server locally, you can now see your application running in [(localhost:3000)](http://localhost:3000). WEBrick server is only intended to be used in development mode.
+If you are running server locally, you can now see your application running in [localhost:3000](http://localhost:3000). WEBrick server is only intended to be used in development mode.
 
 If you want to run server only in development mode you can now stop reading and start coding! If you however are planning to setup production server also, Ctrl - C to shutdown the WEBrick server and continue reading.
 
