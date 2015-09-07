@@ -36,6 +36,7 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::client"
     chef.add_recipe "nginx"
+    chef.add_recipe "imagemagick"
 
     # Configs
     chef.json = {

@@ -9,7 +9,11 @@ class Api::V1::TracksController < Api::BaseController
 
   def search
     @track = Track.where(info_tag: params[:info_tag]).first
-    render :show
+    if @track
+      render :show
+    else
+      render json: { error: "Unknown info tag" }, status: 422
+    end
   end
 
   def result

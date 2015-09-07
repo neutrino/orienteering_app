@@ -8,9 +8,8 @@ worker_processes 1;
 
 
 # Feel free to change all paths to suite your needs here, of course
-pid /path/to/nginx.pid;
+pid /var/run/nginx.pid;
 error_log /var/log/nginx/error.log;
-access_log /var/log/nginx/access.log;
 
 events {
   worker_connections 512; # increase if you have lots of clients
@@ -20,6 +19,8 @@ events {
 }
 
 http {
+
+  access_log /var/log/nginx/access.log;
 
   # nginx will find this file in the config directory set at nginx build time
   include mime.types;
